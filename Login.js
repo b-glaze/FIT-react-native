@@ -14,7 +14,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Registration from './Registration';
 import Search from './Search';
-const userIcon = <Icon name="user" size={35} color="#fff" />;
+const userIcon = <Icon name="user" size={33} color="#fff" />;
 const lockIcon = <Icon name="lock" size={35} color="#fff" />;
 
 
@@ -43,7 +43,7 @@ class Login extends Component {
             </Text>
           </View>
           <View style={styles.sec2}>
-            <Text style={styles.icon}>{userIcon}</Text>
+            <Text style={styles.usericon}>{userIcon}</Text>
             <View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>
               <TextInput style={styles.username}
                 onChangeText={(text) => this.setState({text})}
@@ -132,6 +132,11 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingLeft: 10,
     marginTop: 7,
+  },
+  usericon: {
+    paddingRight: 20,
+    paddingLeft: 8,
+    marginTop: 7,    
   },
   username: {
     height: 50,

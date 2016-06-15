@@ -61,7 +61,7 @@ class Registration extends Component {
 						</View>	
 					</View>
 					<View style={styles.sec2}>
-						<Text style={styles.icon}>
+						<Text style={styles.usericon}>
 							{userIcon}
 						</Text>	
 			          	<View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>
@@ -200,6 +200,10 @@ const styles = StyleSheet.create ({
     emailicon: {
     	marginLeft: -5,
     	paddingRight: 12,
+    	marginTop: 5,
+    },
+    usericon: {
+    	paddingRight: 13,
     	marginTop: 5,
     },
     sec3: {
