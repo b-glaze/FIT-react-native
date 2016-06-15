@@ -20,6 +20,8 @@ class Search extends Component {
 	render() {
 		return(
 			<View style={styles.container}>
+				<StatusBar
+            		hidden={true} />
 				<View style={styles.sec1}>
 					<View style={{borderBottomColor: 'gray', borderBottomWidth: 1, flexDirection: 'row',}}>
 		            	<TextInput style={styles.searchfield}

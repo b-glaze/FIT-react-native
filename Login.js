@@ -26,6 +26,10 @@ class Login extends Component {
     })
   }
 
+  logUser(){
+    this.props.navigator.immediatelyResetRouteStack([{component: Search}]);
+  }
+
   render() {
     return (
       <Image source={require('./images/login.jpg')} 
@@ -65,7 +69,7 @@ class Login extends Component {
           <View style={styles.sec3}>
             <View style={{paddingBottom: 20,paddingTop: 10,}}>
             <TouchableHighlight
-              onPress={this.linkPage.bind(this, Search)}
+              onPress={this.logUser.bind(this, Search)}
               underlayColor='transparent'>
               <View style={styles.button}>
                 <Text style={{color: 'black',}}>
