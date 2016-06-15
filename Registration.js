@@ -48,7 +48,7 @@ class Registration extends Component {
 				style={styles.container}>
 				<View style={{backgroundColor: 'rgba(0,0,0,0.7)', flex: 1,}}>
 					<StatusBar
-						hidden='true' />
+						hidden={true} />
 					<NavigationBar style={styles.nav}
 						leftButton={leftConfig}
 						title={titleConfig}
@@ -102,7 +102,7 @@ class Registration extends Component {
 				        <TouchableHighlight
 				          underlayColor='transparent'>
 				          <View style={styles.button}>
-				            <Text>
+				            <Text style={{color: 'black',}}>
 				              Create
 				            </Text>
 				          </View>
@@ -207,7 +207,6 @@ const styles = StyleSheet.create ({
     	alignItems: 'center',
     },
     button: {
-    	color: 'black',
 	    paddingTop: 15,
 	    paddingBottom: 15,
 	    paddingLeft: 137,

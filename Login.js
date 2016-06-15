@@ -33,7 +33,7 @@ class Login extends Component {
         style={styles.container} >
         <View style={{backgroundColor: 'rgba(0,0,0,0.7)', flex: 1,}}>
           <StatusBar
-            hidden='true' />
+            hidden={true} />
           <View style={styles.sec1}>
             <Text style={styles.fit}>
               FIT
@@ -68,7 +68,7 @@ class Login extends Component {
               onPress={this.linkPage.bind(this, Search)}
               underlayColor='transparent'>
               <View style={styles.button}>
-                <Text>
+                <Text style={{color: 'black',}}>
                   Sign in
                 </Text>
               </View>
@@ -77,7 +77,7 @@ class Login extends Component {
             <TouchableHighlight
               underlayColor='transparent'>
               <View style={styles.fbbutton}>
-                <Text>
+                <Text style={{color: 'black',}}>
                   Sign in with Facebook
                 </Text>
               </View>
@@ -151,7 +151,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   button: {
-    color: 'black',
     paddingTop: 15,
     paddingBottom: 15,
     paddingLeft: 137,
@@ -160,7 +159,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   fbbutton: {
-    color: 'black',
     paddingTop: 15,
     paddingBottom: 15,
     paddingLeft: 90,
