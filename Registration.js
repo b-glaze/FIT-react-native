@@ -12,10 +12,12 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-const userIcon = (<Icon name="user" size={30} color="#900" />)
 import Login from './Login'
 import NavigationBar from 'react-native-navbar';
- 
+const userIcon = <Icon name="user" size={30} color="#fff" />;
+const lockIcon = <Icon name="lock" size={35} color="#fff" />;
+const cameraIcon = <Icon name="camera" size={40} color="#fff" />;
+const envelopeIcon = <Icon name="envelope-o" size={30} color="#fff" />;
 
 class Registration extends Component {
 
@@ -44,61 +46,76 @@ class Registration extends Component {
 			<Image source={require('./images/gym.jpg')}
 				resizeMode= 'cover'
 				style={styles.container}>
-				<StatusBar
-					hidden='true' />
-				<NavigationBar style={styles.nav}
-					leftButton={leftConfig}
-					title={titleConfig}
-					tintColor='transparent' />
-				<View style={styles.sec1}>
-					<View style={styles.camera}>
-						<Image source={require('./images/camera.png')}
-							style={styles.camerapic}>
-						</Image>
-					</View>	
-				</View>
-				<View style={styles.sec2}>
-		          	<View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>
-		            	<TextInput style={styles.username}
-		              		onChangeText={(text) => this.setState({text})}
-		              		placeholder='Username'
-		              		placeholderTextColor='white'
-		              		autoCorrect={false} />
-		          	</View>  
-		          	<View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>  
-		          		<TextInput style={styles.email}
-		              		onChangeText={(text) => this.setState({text})}
-		              		placeholder='Email'
-		              		placeholderTextColor='white'
-		              		keyboardType={'email-address'}
-		            	/> 
-		          	</View> 
-		          	<View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>  
-		            	<TextInput style={styles.password}
-		              		onChangeText={(text) => this.setState({text})}
-		              		placeholder='Password'
-		              		placeholderTextColor='white' 
-		              		secureTextEntry={true} />  
-		          	</View> 
-		        </View>	
-		        <View style={styles.sec3}>
-			        <View style={{paddingBottom: 80,paddingTop: 10,}}>
-			        <TouchableHighlight
-			          underlayColor='transparent'>
-			          <View style={styles.button}>
-			            <Text>
-			              Create
-			            </Text>
-			          </View>
-			        </TouchableHighlight>
+				<View style={{backgroundColor: 'rgba(0,0,0,0.7)', flex: 1,}}>
+					<StatusBar
+						hidden='true' />
+					<NavigationBar style={styles.nav}
+						leftButton={leftConfig}
+						title={titleConfig}
+						tintColor='transparent' />
+					<View style={styles.sec1}>
+						<View style={styles.camera}>
+							<Text style={styles.camerapic}>
+								{cameraIcon}
+							</Text>
+						</View>	
+					</View>
+					<View style={styles.sec2}>
+						<Text style={styles.icon}>
+							{userIcon}
+						</Text>	
+			          	<View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>
+			            	<TextInput style={styles.username}
+			              		onChangeText={(text) => this.setState({text})}
+			              		placeholder='Username'
+			              		placeholderTextColor='white'
+			              		autoCorrect={false} />
+			          	</View>
 			        </View>
-			        <View style={styles.terms}>
-			        	<Text style={styles.termssvc}>
-			        		By clicking Create you agree to our Terms of Service.
-			        	</Text>
+			        <View style={styles.sec22}>
+			        	<Text style={styles.emailicon}>
+							{envelopeIcon}
+						</Text>
+			          	<View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>  
+			          		<TextInput style={styles.email}
+			              		onChangeText={(text) => this.setState({text})}
+			              		placeholder='Email'
+			              		placeholderTextColor='white'
+			              		keyboardType={'email-address'}
+			            	/> 
+			          	</View>
 			        </View>
+			        <View style={styles.sec222}>
+			        	<Text style={styles.icon}>
+							{lockIcon}
+						</Text> 	 
+			          	<View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>  
+			            	<TextInput style={styles.password}
+			              		onChangeText={(text) => this.setState({text})}
+			              		placeholder='Password'
+			              		placeholderTextColor='white' 
+			              		secureTextEntry={true} />  
+			          	</View> 
+			        </View>	
+			        <View style={styles.sec3}>
+				        <View style={{paddingBottom: 80,paddingTop: 10,}}>
+				        <TouchableHighlight
+				          underlayColor='transparent'>
+				          <View style={styles.button}>
+				            <Text>
+				              Create
+				            </Text>
+				          </View>
+				        </TouchableHighlight>
+				        </View>
+				        <View style={styles.terms}>
+				        	<Text style={styles.termssvc}>
+				        		By clicking Create you agree to our Terms of Service.
+				        	</Text>
+				        </View>
 
-			    </View>    
+				    </View>
+				</View>        
 			</Image>
 		);
 	}
@@ -137,26 +154,53 @@ const styles = StyleSheet.create ({
     	borderRadius: 70,
     },
     camerapic: {
-	   	height: 30,
-    	width: 30,
+	   	height: 40,
+    	width: 43,
     },
     sec2: {
-    	flex: 1,
+    	flex: .2,
+    	paddingBottom: 10,
+    	paddingLeft: 30,
+    	paddingRight: 30,
+    	flexDirection: 'row',
+    },
+    sec22: {
+    	flex: .2,
+    	paddingBottom: 10,
+    	paddingLeft: 30,
+    	paddingRight: 30,
+    	flexDirection: 'row',
+    },
+    sec222: {
+    	flex: .2,
+    	paddingBottom: 10,
+    	paddingLeft: 30,
+    	paddingRight: 30,
+    	flexDirection: 'row',
     },
     username: {
     	height: 50,
-    	width: 300,
+    	width: 290,
     	color: 'white',
     },
     password: {
     	height: 50,
-    	width: 300,
+    	width: 290,
     	color: 'white',
     },
     email: {
     	height: 50,
-    	width: 300,
+    	width: 290,
     	color: 'white',
+    },
+    icon: {
+    	paddingRight: 15,
+    	marginTop: 5,
+    },
+    emailicon: {
+    	marginLeft: -5,
+    	paddingRight: 12,
+    	marginTop: 5,
     },
     sec3: {
     	flex: 1,
