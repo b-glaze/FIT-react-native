@@ -20,6 +20,14 @@ const lockIcon = <Icon name="lock" size={35} color="#fff" />;
 
 class Login extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    }
+  }
+
   linkPage(comp) {
     this.props.navigator.push({
       component: comp
@@ -27,7 +35,31 @@ class Login extends Component {
   }
 
   logUser(){
-    this.props.navigator.immediatelyResetRouteStack([{component: Search}]);
+    that = this;
+    let email = this.state.email;
+    let pass  = this.state.password;
+
+    fetch('http://localhost:3000/users/sign_in', {
+      headers: {'Accept': "application/json", "Content-Type": "application/json"}, 
+      method: "POST",
+        body: JSON.stringify({
+        user: {
+          email: email, 
+          password: pass
+        }
+      })
+    })
+    .then(function(response) {
+      if (response.status == 201 || response.status == 200){
+        that.props.navigator.immediatelyResetRouteStack([{component: Search}]);
+        return true;
+      }else{
+        alert("Incorrect email or password");
+        return true;
+      }})
+    .catch(function(e) {  
+       alert("some error occured");
+    });
   }
 
   render() {
@@ -50,7 +82,7 @@ class Login extends Component {
             <Text style={styles.usericon}>{userIcon}</Text>
             <View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>
               <TextInput style={styles.username}
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(email) => this.setState({email})}
                 placeholder='Username'
                 placeholderTextColor='white'
                 autoCorrect={false} />
@@ -60,7 +92,7 @@ class Login extends Component {
             <Text style={styles.icon}>{lockIcon}</Text> 
             <View style={{borderBottomColor: 'gray', borderBottomWidth: 1,}}>  
               <TextInput style={styles.password}
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(password) => this.setState({password})}
                 placeholder='Password'
                 placeholderTextColor='white' 
                 secureTextEntry={true} />  
